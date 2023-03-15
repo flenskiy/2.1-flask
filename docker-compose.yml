@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+
+  db:
+    container_name: postgres
+    image: postgres:13.0-alpine
+    environment:
+      POSTGRES_DB: ${PG_DB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+#    volumes:
+#      - data_db:/var/lib/postgresql/data
+    ports:
+      - "5431:5432"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    networks:
+      - app_network
+
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    container_name: pgadmin4
+#    restart: always
+#    environment:
+#      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+#      - PGADMIN_DEFAULT_PASSWORD=admin
+#    ports:
+#      - "8080:80"
+#    networks:
+#      - app_network
+
+#volumes:
+#  data_db:
+
+networks:
+  app_network:
+    driver: bridge
