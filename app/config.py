@@ -5,6 +5,7 @@ PG_PASSWORD = os.environ["PG_PASSWORD"]
 PG_HOST = os.getenv("PG_HOST", "db")
 PG_PORT = int(os.getenv("PG_PORT", 5432))
 PG_DB = os.environ["PG_DB"]
+TOKEN_TTL = int(os.getenv("TOKEN_TTL", 86400))
 
 PG_DSN = os.getenv(
     "PG_DSN",

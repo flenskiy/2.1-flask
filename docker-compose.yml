@@ -22,8 +22,8 @@ services:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
       PGDATA: "/var/lib/postgresql/data/pgdata"
-#    volumes:
-#      - data_db:/var/lib/postgresql/data
+    volumes:
+      - data_db:/var/lib/postgresql/data
     expose:
       - 5432
     restart: unless-stopped
@@ -57,8 +57,8 @@ services:
 #    networks:
 #      - app_network
 
-#volumes:
-#  data_db:
+volumes:
+  data_db:
 
 networks:
   app_network:

@@ -2,7 +2,7 @@ import pydantic
 from typing import Optional
 
 
-class User(pydantic.BaseModel):
+class RegisterUser(pydantic.BaseModel):
     email: pydantic.EmailStr
     password: str
 
@@ -13,15 +13,9 @@ class User(pydantic.BaseModel):
         return value
 
 
-class CreateUser(User):
-    """CreateUser"""
-
-
-class PatchUser(User):
-    """PatchUser"""
-
-    email: Optional[pydantic.EmailStr]
-    password: Optional[str]
+class LoginUser(pydantic.BaseModel):
+    email: pydantic.EmailStr
+    password: str
 
 
 class CreateAdvertisement(pydantic.BaseModel):
